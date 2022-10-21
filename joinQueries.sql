@@ -59,4 +59,12 @@ ON courses.degree_id = degrees.id
 INNER JOIN departments
 ON degrees.id = departments.id
 WHERE 
-departments.name LIKE "%matematica"
+departments.name LIKE "%matematica";
+
+/*BONUS: Selezionare per ogni studente quanti tentativi d’esame 
+ha sostenuto per superare ciascuno dei suoi esami*/
+SELECT COUNT(exam_id) as "attempt", students.name, students.surname
+FROM exam_student
+INNER JOIN students
+ON exam_student.student_id = students.id
+GROUP BY exam_student.student_id;
