@@ -52,10 +52,19 @@
                 <input type="text" name="student" v-model="inputText" id="student">
                 <button @click="searchStudent">CERCA</button>
             </div>
-            <h3>
-                STUDENTE: {{student.name}} {{student.surname}}
-            </h3>
-            <p>IN: {{student.degree_name}} LEVEL: {{student.level}}</p> 
+            <div class="dati" v-if="student">
+                <h3>
+                    STUDENTE: {{student.name}} {{student.surname}}
+                </h3>
+                <p>IN: {{student.degree_name}} LEVEL: {{student.level}}</p> 
+
+                <h3>ESAMI SOSTENUTI</h3>
+                <ul>
+                    <li v-if="exams" v-for="(exam,index) in exams" :key="index">
+                       {{exam.name}} VOTO: {{exam.vote}}  CFU: {{exam.cfu}}
+                    </li>
+                </ul>
+            </div>
 
         </div>
     </div>

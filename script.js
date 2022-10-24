@@ -1,8 +1,9 @@
 const app = new Vue({
   el: "#app",
   data: {
-    student: {},
+    student: "",
     inputText: "",
+    exams: "",
     
   },
   mounted() {
@@ -11,9 +12,15 @@ const app = new Vue({
     searchStudent() {
       axios.get("api/searchStudent.php", {params: {regNum: this.inputText}})
         .then(({ data }) => {
-          if(data)
+          if(data){
             this.student = data;
-          console.log(data)
+            axios.get("api/searchexams.php", { params: { studId: this.student.id } })
+              .then((res) => {
+                this.exams = res.data
+                console.log("esami",this.exams)
+            })
+          }
+          
       })
     }
   },
