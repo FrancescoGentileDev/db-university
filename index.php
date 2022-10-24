@@ -49,12 +49,13 @@
         <div class="row ms-3">
             <div class="col-3">
                 <label class="mb-3" for="student">Inserisci il tuo numero di registazione per avere informazioni (620033)</label>
-                <input type="text" name="student" id="student">
+                <input type="text" name="student" v-model="inputText" id="student">
                 <button @click="searchStudent">CERCA</button>
             </div>
             <h3>
-                STUDENTE: {{studentName}} {{studentSurname}}
+                STUDENTE: {{student.name}} {{student.surname}}
             </h3>
+            <p>IN: {{student.degree_name}} LEVEL: {{student.level}}</p> 
 
         </div>
     </div>
