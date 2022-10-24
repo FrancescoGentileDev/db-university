@@ -1,4 +1,4 @@
-
+-- Active: 1666258644915@@127.0.0.1@3306@db_university
 /*Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia*/
 SELECT students.*, degrees.name as 'degree_name'
 FROM students
@@ -67,4 +67,5 @@ SELECT COUNT(exam_id) as "attempt", students.name, students.surname
 FROM exam_student
 INNER JOIN students
 ON exam_student.student_id = students.id
+WHERE exam_student.vote < 18
 GROUP BY exam_student.student_id;

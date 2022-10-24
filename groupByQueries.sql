@@ -1,3 +1,4 @@
+-- Active: 1666258644915@@127.0.0.1@3306@db_university
 /*Contare quanti iscritti ci sono stati ogni anno*/
 
 SELECT COUNT(*) AS total,  YEAR(enrolment_date) AS year
@@ -15,6 +16,7 @@ ORDER BY total DESC;
 SELECT AVG(vote) as average, exam_id 
 FROM exam_student
 GROUP BY exam_id
+
 ORDER BY average DESC;
 
 /*Contare quanti corsi di laurea ci sono per ogni dipartimento*/
